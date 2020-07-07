@@ -7,7 +7,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     GENDER_CHOICES = (
         ('M', 'Masculino'),
-        ('F', 'FEMENINO'),
+        ('F', 'Femenino'),
     )
 
 
