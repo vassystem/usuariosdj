@@ -74,3 +74,27 @@ class LoginForm(forms.Form):
 
         return self.cleaned_data
 
+
+class UpdatePasswordForm(forms.Form):
+    password1 = forms.CharField(
+        label='contrasena',
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': 'Contraseña Actual'
+            }
+        )
+    )
+
+    password2 = forms.CharField(
+        label='contrasena',
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': 'Contraseña Nueva'
+            }
+        )
+    )
+
+class VerificacionForm(forms.Form):
+    codregistro = forms.CharField(required=True)    

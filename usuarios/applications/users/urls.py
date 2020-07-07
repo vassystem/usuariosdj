@@ -21,4 +21,14 @@ urlpatterns = [
         views.LogoutView.as_view(),
         name='user-logout'
     ),
+    path(
+        'update_password/',
+        views.UpdatePasswordView.as_view(),
+        name='user-update'
+    ),
+    path(
+        'user-verificacion/',
+        views.CodeVerificacionView.as_view(),
+        name='user-verificacion'
+    ),
 ]
