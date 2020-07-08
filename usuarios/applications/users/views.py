@@ -50,7 +50,7 @@ class UserRegisterView(FormView):
         mensaje = 'Codigo de verificacion:  ' + codigo
         email_remitente = 'netiovq@gmail.com'
         #
-        send_email(asunto, mensaje, email_remitente, [form.cleaned_data['email'],])
+        send_mail(asunto, mensaje, email_remitente, [form.cleaned_data['email'],])
         # return super(UserRegisterView, self).form_valid(form)
         return HttpResponseRedirect(
             reverse(
@@ -73,7 +73,7 @@ class LoginUser(FormView):
 
 class LogoutView(View):
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kargs):
         logout(request)
         return HttpResponseRedirect(
             reverse(

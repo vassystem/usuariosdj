@@ -6,6 +6,11 @@
     <title>Autorizacion</title>
 </head>
 <body>
-    <h1>A</h1>
+    <h1>Verificacion de email</h1>
+    <h3>INgrese el codigo de verificacion</h3>
+    <form method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Confirmar</button>
+    </form>
 </body>
 </html>

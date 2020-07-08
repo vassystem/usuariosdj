@@ -97,4 +97,18 @@ class UpdatePasswordForm(forms.Form):
     )
 
 class VerificacionForm(forms.Form):
-    codregistro = forms.CharField(required=True)    
+    codregistro = forms.CharField(required=True)
+
+    def clean_codregistro(self):
+        codigo = self.cleaned_data['codregistro']
+
+        if len(codigo) ==6:
+            # verificacion si el codigo y el id de usuario son validators
+            activo = User.objects.cod_validation(
+                self.kwargs['pk'],
+                codigo
+            )
+            if not activo:
+                raise forms.ValidationError('el codigo es incorrecto')
+            else:
+                raise forms.ValidationError('el codigo es incorrecto')
